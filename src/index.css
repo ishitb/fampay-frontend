@@ -34,6 +34,7 @@ code {
         monospace;
 }
 
+/* Root Styles */
 :root {
     --clr-offwhite: #f7f6f3;
     --clr-white: #fff;
@@ -46,6 +47,11 @@ code {
     --font-metropolis-bold: Metropolis Bold;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* Common Classes */
 .background-offwhite {
     background-color: var(--clr-offwhite);
 }

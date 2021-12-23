@@ -33,7 +33,11 @@ function App() {
 
     // Fetching card groups from API
     const fetchData = async () => {
-        fetch(process.env.REACT_APP_API_URL)
+        let url =
+            process.env.NODE_ENV === 'development'
+                ? '/assets/data.json'
+                : process.env.REACT_APP_API_URL;
+        fetch(url)
             .then(async (res) => {
                 let cards = await res.json();
                 sortCards(cards.card_groups);

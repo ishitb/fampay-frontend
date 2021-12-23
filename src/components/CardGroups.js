@@ -27,10 +27,10 @@ const CardGroups = ({
         <div className={`${styles.cardGroups} background-offwhite`}>
             {/* CARD GROUPS */}
             {HC3CardGroups.map((group, index) => (
-                <HC3CardGroup key={index} />
+                <HC3CardGroup key={index} group={group} />
             ))}
 
-            {HC6CardGroups.map((group, index) => (
+            {/* {HC6CardGroups.map((group, index) => (
                 <HC6CardGroup key={index} />
             ))}
 
@@ -44,7 +44,7 @@ const CardGroups = ({
 
             {HC1CardGroups.map((group, index) => (
                 <HC1CardGroup key={index} />
-            ))}
+            ))} */}
         </div>
     );
 };
