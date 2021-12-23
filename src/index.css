@@ -98,5 +98,12 @@ a {
 }
 
 .is_scrollable {
+    min-width: 100%;
+    width: 100%;
     overflow-x: scroll;
+    white-space: normal;
+}
+
+.is_scrollable > div {
+    min-width: 100%;
 }

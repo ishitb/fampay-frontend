@@ -38,9 +38,9 @@ const CardGroups = ({
                 <CardGroup key={index} group={group} type='HC9' />
             ))}
 
-            {/* {HC1CardGroups.map((group, index) => (
+            {HC1CardGroups.map((group, index) => (
                 <CardGroup key={index} group={group} type='HC1' />
-            ))} */}
+            ))}
         </div>
     );
 };

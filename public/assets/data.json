@@ -93,6 +93,7 @@
                         "text": "Transactions",
                         "entities": []
                     },
+                    "description": "Transactions",
                     "icon": {
                         "image_type": "ext",
                         "image_url": "https://westeros-staging.s3.amazonaws.com/media/images/generic/4ce76db9e755497f8d176764b6d590ba.png",

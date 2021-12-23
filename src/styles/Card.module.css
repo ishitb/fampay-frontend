@@ -12,6 +12,12 @@
     width: 30px;
 }
 
+.cardText {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
 .description {
     font-size: 12px;
 }
@@ -73,4 +79,35 @@
 .HC9 img {
     border-radius: 11px;
     width: 100%;
+}
+
+.HC1 {
+    height: 60px;
+    width: 100%;
+    padding: 15px 20px;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.HC1 .icon {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+}
+
+.HC1 .cardText {
+    gap: 1px;
+}
+
+.HC1 .title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--clr-black);
+    width: 100%;
+}
+
+.HC1 .description {
+    color: var(--clr-dark);
+    font-size: 14px;
 }

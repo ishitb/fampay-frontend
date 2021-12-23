@@ -64,6 +64,9 @@ const Card = ({ card, type, height }) => {
         HC9: {
             height: height,
         },
+        HC1: {
+            backgroundColor: card.bg_color ? card.bg_color : '#FBAF03',
+        },
     };
 
     return (
@@ -80,33 +83,36 @@ const Card = ({ card, type, height }) => {
                 />
             )}
 
-            {card.title && (
-                <h1 className={`${styles.title} font-roboto foreground-white`}>
-                    {card.formatted_title.entities.length > 0 ? (
-                        <FormattedText
-                            data={card.formatted_title}
-                            plain_text={card.title}
-                        />
-                    ) : (
-                        card.title
-                    )}
-                </h1>
-            )}
-
-            {card.description && type !== 'HC6' && (
-                <h3
-                    className={`${styles.description} font-roboto foreground-white`}
-                >
-                    {card.formatted_description.entities.length > 0 ? (
-                        <FormattedText
-                            data={card.formatted_description}
-                            plain_text={card.description}
-                        />
-                    ) : (
-                        card.description
-                    )}
-                </h3>
-            )}
+            <div className={`${styles.cardText}`}>
+                {card.title && (
+                    <h1
+                        className={`${styles.title} font-roboto foreground-white`}
+                    >
+                        {card.formatted_title?.entities.length > 0 ? (
+                            <FormattedText
+                                data={card.formatted_title}
+                                plain_text={card.title}
+                            />
+                        ) : (
+                            card.title
+                        )}
+                    </h1>
+                )}
+                {card.description && type !== 'HC6' && (
+                    <h3
+                        className={`${styles.description} font-roboto foreground-white`}
+                    >
+                        {card.formatted_description?.entities.length > 0 ? (
+                            <FormattedText
+                                data={card.formatted_description}
+                                plain_text={card.description}
+                            />
+                        ) : (
+                            card.description
+                        )}
+                    </h3>
+                )}
+            </div>
 
             {/* Call To Actions */}
             {card.cta &&
