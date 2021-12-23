@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLongPress } from 'react-use';
 import styles from '../styles/Card.module.css';
 
 /**
@@ -50,7 +51,7 @@ const FormattedText = ({ data, plain_text }) => {
     return <span dangerouslySetInnerHTML={{ __html: result }}></span>;
 };
 
-const Card = ({ card, type, height }) => {
+const CardContent = ({ card, type, height }) => {
     // Specific Styles for Cards
     let customStyles = {
         HC3: {
@@ -162,6 +163,30 @@ const Card = ({ card, type, height }) => {
                 <img src={card.bg_image?.image_url} alt='HC5' />
             )}
         </div>
+    );
+};
+
+const Card = ({ card, type, height }) => {
+    const onLongPress = () => {
+        console.log('calls callback after long pressing 300ms');
+        window.alert('Hello World');
+    };
+
+    const defaultOptions = {
+        isPreventDefault: true,
+        delay: 300,
+    };
+    const longPressEvent = useLongPress(onLongPress, defaultOptions);
+
+    return type === 'HC3' ? (
+        <CardContent
+            card={card}
+            type={type}
+            height={height}
+            {...longPressEvent}
+        />
+    ) : (
+        <CardContent card={card} type={type} height={height} />
     );
 };
 
