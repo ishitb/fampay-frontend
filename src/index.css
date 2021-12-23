@@ -107,3 +107,16 @@ a {
 .is_scrollable > div {
     min-width: 100%;
 }
+
+.error {
+    font-family: Metropolis Semi Bold;
+    font-weight: 600;
+    font-size: 1.75rem;
+    color: #e63946;
+    text-align: center;
+    padding: 20px;
+}
+
+.error span {
+    color: #000;
+}
