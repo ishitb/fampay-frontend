@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLongPress } from 'react-use';
+import useLongPress from '../hooks/useLongPress';
 import styles from '../styles/Card.module.css';
 
 /**
@@ -51,7 +51,7 @@ const FormattedText = ({ data, plain_text }) => {
     return <span dangerouslySetInnerHTML={{ __html: result }}></span>;
 };
 
-const CardContent = ({ card, type, height }) => {
+const CardContent = ({ card, type, height, ...extra }) => {
     // Specific Styles for Cards
     let customStyles = {
         HC3: {
@@ -93,6 +93,7 @@ const CardContent = ({ card, type, height }) => {
             className={`${styles.card} ${styles[type]}`}
             style={customStyles[type]}
             onClick={() => (window.location.href = card.url)}
+            {...extra}
         >
             {card.icon && (
                 <img
@@ -167,24 +168,46 @@ const CardContent = ({ card, type, height }) => {
 };
 
 const Card = ({ card, type, height }) => {
+    // Long Press Action
+    const [pressed, setPressed] = useState(false);
+
     const onLongPress = () => {
-        console.log('calls callback after long pressing 300ms');
-        window.alert('Hello World');
+        setPressed(true);
     };
 
     const defaultOptions = {
         isPreventDefault: true,
         delay: 300,
     };
-    const longPressEvent = useLongPress(onLongPress, defaultOptions);
+    const longPressEvent = useLongPress(
+        type === 'HC3' ? onLongPress : null,
+        null,
+        defaultOptions,
+    );
 
     return type === 'HC3' ? (
-        <CardContent
-            card={card}
-            type={type}
-            height={height}
+        <div
+            className={`${styles.hc6Container} ${
+                pressed ? styles.pressed : ''
+            } background-white`}
             {...longPressEvent}
-        />
+        >
+            <section className={`${styles.longPressActions}`}>
+                <button
+                    className={`${styles.button} background-offwhite foreground-black`}
+                >
+                    <img src='/assets/images/bell.png' alt='bell' />
+                    remind later
+                </button>
+                <button
+                    className={`${styles.button} background-offwhite foreground-black`}
+                >
+                    <img src='/assets/images/dismiss.png' alt='dismiss' />
+                    dismiss now
+                </button>
+            </section>
+            <CardContent card={card} type={type} height={height} />
+        </div>
     ) : (
         <CardContent card={card} type={type} height={height} />
     );
