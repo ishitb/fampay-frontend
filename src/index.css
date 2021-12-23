@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@font-face {
+    font-family: Metropolis;
+    src: url('/public/assets/fonts/metropolis.light.otf');
+}
+@font-face {
+    font-family: Metropolis Medium;
+    src: url('/public/assets/fonts/metropolis.medium.otf');
+}
+@font-face {
+    font-family: Metropolis Semi Bold;
+    src: url('/public/assets/fonts/metropolis.semi-bold.otf');
+}
+@font-face {
+    font-family: Metropolis Bold;
+    src: url('/public/assets/fonts/metropolis.bold.otf');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +30,62 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas,
-        'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+:root {
+    --clr-offwhite: #f7f6f3;
+    --clr-white: #fff;
+    --clr-dark: #4c5454;
+
+    --font-roboto: 'Roboto', sans-serif;
+    --font-metropolis: Metropolis;
+    --font-metropolis-medium: Metropolis Medium;
+    --font-metropolis-semi-bold: Metropolis Semi Bold;
+    --font-metropolis-bold: Metropolis Bold;
+}
+
+.background-offwhite {
+    background-color: var(--clr-offwhite);
+}
+
+.background-white {
+    background-color: var(--clr-white);
+}
+
+.background-dark {
+    background-color: var(--clr-dark);
+}
+
+.foreground-offwhite {
+    color: var(--clr-offwhite);
+}
+
+.foreground-white {
+    color: var(--clr-white);
+}
+
+.foreground-dark {
+    color: var(--clr-dark);
+}
+
+.font-roboto {
+    font-family: var(--font-roboto);
+}
+
+.font-metropolis {
+    font-family: var(--font-metropolis);
+}
+
+.font-metropolis-medium {
+    font-family: var(--font-metropolis-medium);
+}
+
+.font-metropolis-semi-bold {
+    font-family: var(--font-metropolis-semi-bold);
+}
+
+.font-metropolis-bold {
+    font-family: var(--font-metropolis-bold);
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
     let [HC1cards, setHC1cards] = useState([]);
@@ -43,7 +44,11 @@ function App() {
         // eslint-disable-next-line
     }, []);
 
-    return <div className='App'></div>;
+    return (
+        <div className='App'>
+            <Navbar />
+        </div>
+    );
 }
 
 export default App;
