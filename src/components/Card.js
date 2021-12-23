@@ -54,18 +54,36 @@ const Card = ({ card, type, height }) => {
     // Specific Styles for Cards
     let customStyles = {
         HC3: {
+            backgroundImage: card.bg_gradient
+                ? `linear-gradient(${
+                      card.bg_gradient?.angle ? card.bg_gradient?.angle : 0
+                  }deg, ${card.bg_gradient?.colors?.join(', ')})`
+                : `url(${card.bg_image?.image_url}`,
             backgroundColor: card.bg_color,
-            backgroundImage: `url(${card.bg_image?.image_url}`,
         },
         HC5: {
             backgroundColor: card.bg_color,
             '--aspect-ratio': card.bg_color?.aspect_ratio,
+            backgroundImage: `linear-gradient(${
+                card.bg_gradient?.angle ? card.bg_gradient?.angle : 0
+            }deg, ${card.bg_gradient?.colors?.join(', ')})`,
         },
         HC9: {
             height: height,
+            backgroundImage: `linear-gradient(${
+                card.bg_gradient?.angle ? card.bg_gradient?.angle : 0
+            }deg, ${card.bg_gradient?.colors?.join(', ')})`,
         },
         HC1: {
             backgroundColor: card.bg_color ? card.bg_color : '#FBAF03',
+            backgroundImage: `linear-gradient(${
+                card.bg_gradient?.angle ? card.bg_gradient?.angle : 0
+            }deg, ${card.bg_gradient?.colors?.join(', ')})`,
+        },
+        HC6: {
+            backgroundImage: `linear-gradient(${
+                card.bg_gradient?.angle ? card.bg_gradient?.angle : 0
+            }deg, ${card.bg_gradient?.colors?.join(', ')})`,
         },
     };
 
