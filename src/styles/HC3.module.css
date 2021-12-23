@@ -5,33 +5,7 @@
     justify-content: center;
 }
 
-.card {
-    border-radius: 12px;
+.hc3CardGroup > div {
     height: 350px;
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    --webkit-background-size: 100% 100%;
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 1.75rem;
-}
-
-.title {
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.description {
-    font-size: 12px;
-}
-
-.cta {
-    font-size: 14px;
-    width: fit-content;
-    border-radius: 6px;
-    padding: 13px 43.5px;
 }
