@@ -120,6 +120,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
+    transition: 0.5s all;
 }
 
 .hc6Container > div {

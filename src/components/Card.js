@@ -168,8 +168,13 @@ const CardContent = ({ card, type, height, ...extra }) => {
 };
 
 const Card = ({ card, type, height }) => {
+    // eslint-disable-next-line
+    const [dismissedCards, setDismissedCards] = useState([]);
+
     // Long Press Action
     const [pressed, setPressed] = useState(false);
+    const [remindLater, setRemindLater] = useState(false);
+    const [dismiss, setDismiss] = useState(false);
 
     const onLongPress = () => {
         setPressed(true);
@@ -185,28 +190,58 @@ const Card = ({ card, type, height }) => {
         defaultOptions,
     );
 
+    const dismissCard = () => {
+        setDismiss(true);
+
+        window.localStorage.setItem(
+            'dismissed-cards',
+            JSON.stringify([...dismissedCards, card.name]),
+        );
+    };
+
+    useEffect(() => {
+        let curr_dismissed_cards =
+            window.localStorage.getItem('dismissed-cards');
+        setDismissedCards(
+            curr_dismissed_cards ? JSON.parse(curr_dismissed_cards) : [],
+        );
+
+        // eslint-disable-next-line
+    }, []);
+
     return type === 'HC3' ? (
         <div
             className={`${styles.hc6Container} ${
                 pressed ? styles.pressed : ''
             } background-white`}
-            {...longPressEvent}
+            style={{
+                display: (remindLater || dismiss) && 'none',
+            }}
         >
             <section className={`${styles.longPressActions}`}>
                 <button
                     className={`${styles.button} background-offwhite foreground-black`}
+                    onClick={() => {
+                        setRemindLater(true);
+                    }}
                 >
                     <img src='/assets/images/bell.png' alt='bell' />
                     remind later
                 </button>
                 <button
                     className={`${styles.button} background-offwhite foreground-black`}
+                    onClick={dismissCard}
                 >
                     <img src='/assets/images/dismiss.png' alt='dismiss' />
                     dismiss now
                 </button>
             </section>
-            <CardContent card={card} type={type} height={height} />
+            <CardContent
+                {...longPressEvent}
+                card={card}
+                type={type}
+                height={height}
+            />
         </div>
     ) : (
         <CardContent card={card} type={type} height={height} />
