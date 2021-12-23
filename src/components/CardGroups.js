@@ -1,8 +1,4 @@
-import HC1CardGroup from './HC1CardGroup';
-import HC3CardGroup from './HC3CardGroup';
-import HC5CardGroup from './HC5CardGroup';
-import HC6CardGroup from './HC6CardGroup';
-import HC9CardGroup from './HC9CardGroup';
+import CardGroup from './CardGroup';
 
 import styles from '../styles/CardGroups.module.css';
 
@@ -27,16 +23,16 @@ const CardGroups = ({
         <div className={`${styles.cardGroups} background-offwhite`}>
             {/* CARD GROUPS */}
             {HC3CardGroups.map((group, index) => (
-                <HC3CardGroup key={index} group={group} />
+                <CardGroup key={index} group={group} type='HC3' />
             ))}
 
             {HC6CardGroups.map((group, index) => (
-                <HC6CardGroup key={index} group={group} />
+                <CardGroup key={index} group={group} type='HC6' />
             ))}
 
-            {/* {HC5CardGroups.map((group, index) => (
-                <HC5CardGroup key={index} />
-            ))} */}
+            {HC5CardGroups.map((group, index) => (
+                <CardGroup key={index} group={group} type='HC5' />
+            ))}
 
             {/* {HC9CardGroups.map((group, index) => (
                 <HC9CardGroup key={index} />

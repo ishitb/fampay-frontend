@@ -1,18 +1,18 @@
 import Card from './Card';
-import styles from '../styles/HC3.module.css';
+import styles from '../styles/CardGroup.module.css';
 
-const HC3CardGroup = ({ group }) => {
+const CardGroup = ({ group, type }) => {
     return (
         <div
-            className={`${styles.hc3CardGroup} ${
+            className={`${styles.CardGroup} ${
                 group.is_scrollable ? 'is_scrollable' : ''
             }`}
         >
             {group.cards.map((card, index) => (
-                <Card card={card} key={index} type='HC3' />
+                <Card card={card} key={index} type={type} />
             ))}
         </div>
     );
 };
 
-export default HC3CardGroup;
+export default CardGroup;

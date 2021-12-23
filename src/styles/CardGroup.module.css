@@ -1,6 +1,6 @@
-.hc3CardGroup {
+.CardGroup {
     display: flex;
-    /* flex-wrap: nowrap; */
+    gap: 15px;
     align-items: center;
     justify-content: center;
 }

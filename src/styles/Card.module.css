@@ -58,3 +58,14 @@
     color: var(--clr-black);
     width: 100%;
 }
+
+.HC5 {
+    /* aspect-ratio: var(--aspect-ratio);
+    --webkit-aspect-ratio: var(--aspect-ratio); */
+    width: 100%;
+}
+
+.hc5Image {
+    min-width: 100%;
+    border-radius: 12px;
+}

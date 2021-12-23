@@ -51,17 +51,22 @@ const FormattedText = ({ data, plain_text }) => {
 };
 
 const Card = ({ card, type }) => {
+    // Specific Styles for Cards
+    let customStyles = {
+        HC3: {
+            backgroundColor: card.bg_color,
+            backgroundImage: `url(${card.bg_image?.image_url}`,
+        },
+        HC5: {
+            backgroundColor: card.bg_color,
+            '--aspect-ratio': card.bg_color?.aspect_ratio,
+        },
+    };
+
     return (
         <div
             className={`${styles.card} ${styles[type]}`}
-            style={
-                type === 'HC3'
-                    ? {
-                          backgroundColor: card.bg_color,
-                          backgroundImage: `url(${card.bg_image.image_url}`,
-                      }
-                    : {}
-            }
+            style={customStyles[type]}
             onClick={() => (window.location.href = card.url)}
         >
             {card.icon && (
@@ -72,29 +77,33 @@ const Card = ({ card, type }) => {
                 />
             )}
 
-            <h1 className={`${styles.title} font-roboto foreground-white`}>
-                {card.formatted_title.entities.length > 0 ? (
-                    <FormattedText
-                        data={card.formatted_title}
-                        plain_text={card.title}
-                    />
-                ) : (
-                    card.title
-                )}
-            </h1>
+            {card.title && (
+                <h1 className={`${styles.title} font-roboto foreground-white`}>
+                    {card.formatted_title.entities.length > 0 ? (
+                        <FormattedText
+                            data={card.formatted_title}
+                            plain_text={card.title}
+                        />
+                    ) : (
+                        card.title
+                    )}
+                </h1>
+            )}
 
-            {/* <h3
-                className={`${styles.description} font-roboto foreground-white`}
-            >
-                {card.formatted_description.entities.length > 0 ? (
-                    <FormattedText
-                        data={card.formatted_description}
-                        plain_text={card.description}
-                    />
-                ) : (
-                    card.description
-                )}
-            </h3> */}
+            {card.description && type !== 'HC6' && (
+                <h3
+                    className={`${styles.description} font-roboto foreground-white`}
+                >
+                    {card.formatted_description.entities.length > 0 ? (
+                        <FormattedText
+                            data={card.formatted_description}
+                            plain_text={card.description}
+                        />
+                    ) : (
+                        card.description
+                    )}
+                </h3>
+            )}
 
             {/* Call To Actions */}
             {card.cta &&
@@ -118,6 +127,15 @@ const Card = ({ card, type }) => {
                     src='/assets/images/arrow.svg'
                     alt='arrow'
                     className={`${styles.arrow}`}
+                />
+            )}
+
+            {/* Background Image for HC5 */}
+            {type === 'HC5' && (
+                <img
+                    src={card.bg_image?.image_url}
+                    alt='HC5'
+                    className={`${styles.hc5Image}`}
                 />
             )}
         </div>
