@@ -95,3 +95,7 @@ a {
 .font-metropolis-bold {
     font-family: var(--font-metropolis-bold);
 }
+
+.is_scrollable {
+    overflow-x: scroll;
+}

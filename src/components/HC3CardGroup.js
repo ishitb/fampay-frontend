@@ -104,7 +104,11 @@ const Card = ({ card }) => {
 
 const HC3CardGroup = ({ group }) => {
     return (
-        <div className={`${styles.hc3CardGroup}`}>
+        <div
+            className={`${styles.hc3CardGroup} ${
+                group.is_scrollable ? 'is_scrollable' : ''
+            }`}
+        >
             {group.cards.map((card, index) => (
                 <Card card={card} key={index} />
             ))}
