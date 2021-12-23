@@ -50,7 +50,7 @@ const FormattedText = ({ data, plain_text }) => {
     return <span dangerouslySetInnerHTML={{ __html: result }}></span>;
 };
 
-const Card = ({ card, type }) => {
+const Card = ({ card, type, height }) => {
     // Specific Styles for Cards
     let customStyles = {
         HC3: {
@@ -60,6 +60,9 @@ const Card = ({ card, type }) => {
         HC5: {
             backgroundColor: card.bg_color,
             '--aspect-ratio': card.bg_color?.aspect_ratio,
+        },
+        HC9: {
+            height: height,
         },
     };
 
@@ -131,12 +134,8 @@ const Card = ({ card, type }) => {
             )}
 
             {/* Background Image for HC5 */}
-            {type === 'HC5' && (
-                <img
-                    src={card.bg_image?.image_url}
-                    alt='HC5'
-                    className={`${styles.hc5Image}`}
-                />
+            {['HC5', 'HC9'].includes(type) && (
+                <img src={card.bg_image?.image_url} alt='HC5' />
             )}
         </div>
     );

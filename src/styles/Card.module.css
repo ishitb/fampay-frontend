@@ -65,7 +65,12 @@
     width: 100%;
 }
 
-.hc5Image {
+.HC5 img {
     min-width: 100%;
     border-radius: 12px;
+}
+
+.HC9 img {
+    border-radius: 11px;
+    width: 100%;
 }

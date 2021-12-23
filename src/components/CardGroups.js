@@ -34,12 +34,12 @@ const CardGroups = ({
                 <CardGroup key={index} group={group} type='HC5' />
             ))}
 
-            {/* {HC9CardGroups.map((group, index) => (
-                <HC9CardGroup key={index} />
-            ))} */}
+            {HC9CardGroups.map((group, index) => (
+                <CardGroup key={index} group={group} type='HC9' />
+            ))}
 
             {/* {HC1CardGroups.map((group, index) => (
-                <HC1CardGroup key={index} />
+                <CardGroup key={index} group={group} type='HC1' />
             ))} */}
         </div>
     );

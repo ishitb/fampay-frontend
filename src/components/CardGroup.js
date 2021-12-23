@@ -5,11 +5,16 @@ const CardGroup = ({ group, type }) => {
     return (
         <div
             className={`${styles.CardGroup} ${
-                group.is_scrollable ? 'is_scrollable' : ''
+                group.is_scrollable && type !== 'HC9' ? 'is_scrollable' : ''
             }`}
         >
             {group.cards.map((card, index) => (
-                <Card card={card} key={index} type={type} />
+                <Card
+                    key={index}
+                    card={card}
+                    type={type}
+                    height={card.height}
+                />
             ))}
         </div>
     );
