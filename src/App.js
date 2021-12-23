@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import PullToRefresh from 'react-simple-pull-to-refresh';
 
-import './App.css';
 import CardGroups from './components/CardGroups';
 import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
     let [HC1cards, setHC1cards] = useState([]);
@@ -33,6 +34,10 @@ function App() {
 
     // Fetching card groups from API
     const fetchData = async () => {
+        Object.keys(card_design_type).forEach((card) => {
+            card_design_type[card]([]);
+        });
+
         let url =
             process.env.NODE_ENV === 'development'
                 ? '/assets/data.json'
@@ -54,13 +59,15 @@ function App() {
     return (
         <div className='App'>
             <Navbar />
-            <CardGroups
-                HC1CardGroups={HC1cards}
-                HC3CardGroups={HC3cards}
-                HC5CardGroups={HC5cards}
-                HC6CardGroups={HC6cards}
-                HC9CardGroups={HC9cards}
-            />
+            <PullToRefresh onRefresh={fetchData}>
+                <CardGroups
+                    HC1CardGroups={HC1cards}
+                    HC3CardGroups={HC3cards}
+                    HC5CardGroups={HC5cards}
+                    HC6CardGroups={HC6cards}
+                    HC9CardGroups={HC9cards}
+                />
+            </PullToRefresh>
         </div>
     );
 }
