@@ -30,19 +30,19 @@ const CardGroups = ({
                 <HC3CardGroup key={index} group={group} />
             ))}
 
-            {/* {HC6CardGroups.map((group, index) => (
-                <HC6CardGroup key={index} />
+            {HC6CardGroups.map((group, index) => (
+                <HC6CardGroup key={index} group={group} />
             ))}
 
-            {HC5CardGroups.map((group, index) => (
+            {/* {HC5CardGroups.map((group, index) => (
                 <HC5CardGroup key={index} />
-            ))}
+            ))} */}
 
-            {HC9CardGroups.map((group, index) => (
+            {/* {HC9CardGroups.map((group, index) => (
                 <HC9CardGroup key={index} />
-            ))}
+            ))} */}
 
-            {HC1CardGroups.map((group, index) => (
+            {/* {HC1CardGroups.map((group, index) => (
                 <HC1CardGroup key={index} />
             ))} */}
         </div>

@@ -9,7 +9,7 @@ const HC3CardGroup = ({ group }) => {
             }`}
         >
             {group.cards.map((card, index) => (
-                <Card card={card} key={index} />
+                <Card card={card} key={index} type='HC3' />
             ))}
         </div>
     );

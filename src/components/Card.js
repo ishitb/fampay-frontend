@@ -50,16 +50,28 @@ const FormattedText = ({ data, plain_text }) => {
     return <span dangerouslySetInnerHTML={{ __html: result }}></span>;
 };
 
-const Card = ({ card }) => {
+const Card = ({ card, type }) => {
     return (
         <div
-            className={`${styles.card}`}
-            style={{
-                backgroundColor: card.bg_color,
-                backgroundImage: `url(${card.bg_image.image_url}`,
-            }}
+            className={`${styles.card} ${styles[type]}`}
+            style={
+                type === 'HC3'
+                    ? {
+                          backgroundColor: card.bg_color,
+                          backgroundImage: `url(${card.bg_image.image_url}`,
+                      }
+                    : {}
+            }
             onClick={() => (window.location.href = card.url)}
         >
+            {card.icon && (
+                <img
+                    src={card.icon.image_url}
+                    alt='icon'
+                    className={`${styles.icon}`}
+                />
+            )}
+
             <h1 className={`${styles.title} font-roboto foreground-white`}>
                 {card.formatted_title.entities.length > 0 ? (
                     <FormattedText
@@ -71,7 +83,7 @@ const Card = ({ card }) => {
                 )}
             </h1>
 
-            <h3
+            {/* <h3
                 className={`${styles.description} font-roboto foreground-white`}
             >
                 {card.formatted_description.entities.length > 0 ? (
@@ -82,22 +94,32 @@ const Card = ({ card }) => {
                 ) : (
                     card.description
                 )}
-            </h3>
+            </h3> */}
 
             {/* Call To Actions */}
-            {card.cta.map((action, index) => (
-                <a
-                    className={`${styles.cta} font-roboto`}
-                    key={index}
-                    href={action.url}
-                    style={{
-                        backgroundColor: action.bg_color,
-                        color: action.text_color,
-                    }}
-                >
-                    {action.text}
-                </a>
-            ))}
+            {card.cta &&
+                card.cta.map((action, index) => (
+                    <a
+                        className={`${styles.cta} font-roboto`}
+                        key={index}
+                        href={action.url}
+                        style={{
+                            backgroundColor: action.bg_color,
+                            color: action.text_color,
+                        }}
+                    >
+                        {action.text}
+                    </a>
+                ))}
+
+            {/* Arrow For HC6 */}
+            {type === 'HC6' && (
+                <img
+                    src='/assets/images/arrow.svg'
+                    alt='arrow'
+                    className={`${styles.arrow}`}
+                />
+            )}
         </div>
     );
 };

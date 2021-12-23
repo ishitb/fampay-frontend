@@ -4,16 +4,12 @@
     background-position: center;
     background-size: 100% 100%;
     --webkit-background-size: 100% 100%;
-    padding: 20px 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 1.75rem;
 }
 
-.title {
-    font-size: 30px;
-    font-weight: 500;
+.icon {
+    height: 30px;
+    width: 30px;
 }
 
 .description {
@@ -25,4 +21,40 @@
     width: fit-content;
     border-radius: 6px;
     padding: 13px 43.5px;
+}
+
+.arrow {
+    justify-self: flex-end;
+}
+
+/* Specific Card Styles */
+.HC3 {
+    height: 350px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.75rem;
+    padding: 20px 30px;
+}
+
+.HC3 .title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.HC6 {
+    background-color: var(--clr-white);
+    height: 60px;
+    width: 100%;
+    padding: 15px 20px;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.HC6 .title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--clr-black);
+    width: 100%;
 }
